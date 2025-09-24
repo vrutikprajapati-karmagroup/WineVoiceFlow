@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TALK WITH AI</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Embedded Vapi voice widget demo." />
+    <style>
+      /* Optional page styling (widget handles its own UI). */
+      :root { color-scheme: dark; }
+      body { margin: 0; background: #000; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif; }
+      .page-wrap { min-height: 100dvh; display: grid; place-items: center; padding: 24px; }
+      .brand { color: #e5e7eb; text-align: center; }
+      .brand h1 { margin: 0 0 8px; font-size: clamp(1.4rem, 1.2rem + 1.2vw, 2rem); }
+      .brand p { margin: 0; opacity: .7; }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrap" aria-hidden="true">
+      <div class="brand">
+        <h1>Voice assistant is ready</h1>
+        <p>Use the floating button at the bottom-right to start.</p>
+      </div>
+    </div>
+
+    <!-- Vapi Voice Widget -->
+    <vapi-widget
+      public-key="8e123889-6557-4bb1-b956-b2ab1c272fee"
+      assistant-id="057904ed-a614-4894-9d13-fb2ee38c2bf5"
+      mode="voice"
+      theme="dark"
+      base-bg-color="#000000"
+      accent-color="#14B8A6"
+      cta-button-color="#000000"
+      cta-button-text-color="#ffffff"
+      border-radius="large"
+      size="full"
+      position="bottom-right"
+      title="TALK WITH AI"
+      start-button-text="Start"
+      end-button-text="End Call"
+      chat-first-message="Hey, How can I help you today?"
+      chat-placeholder="Type your message..."
+      voice-show-transcript="false"
+      consent-required="true"
+      consent-title="Terms and conditions"
+      consent-content='By clicking "Agree," and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service.'
+      consent-storage-key="vapi_widget_consent"
+    ></vapi-widget>
+
+    <!-- Load the Vapi SDK for the <vapi-widget> custom element -->
+    <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async defer type="text/javascript"></script>
+
+    <noscript>
+      <div style="position:fixed;inset:0;display:grid;place-items:center;background:#000;color:#fff">
+        JavaScript is required to load the voice widget.
+      </div>
+    </noscript>
+  </body>
+</html>
